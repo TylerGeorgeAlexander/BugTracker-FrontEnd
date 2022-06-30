@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import "./Login.css";
 import { Form, Button } from "react-bootstrap";
 
-const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL || "http://localhost:8080";
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:8080";
 
 async function loginUser(credentials) {
-  return fetch(API_BASE_URL, {
+  const url = new URL(`${API_BASE_URL}/login`);
+  return fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
